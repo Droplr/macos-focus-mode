@@ -1,4 +1,4 @@
-import {disableFocusMode, enableFocusMode} from "../src/focus-mode.js";
+const { disableFocusMode, enableFocusMode } = require("../src/focus-mode.js");
 
 enableFocusMode();
 setTimeout(() => {

@@ -1,7 +1,7 @@
-import {execSync} from "child_process";
+const { execSync } = require("child_process");
 
-export function getInstalledShortcuts() {
-    const result = execSync("shortcuts list", {encoding: 'utf8'});
+function getInstalledShortcuts() {
+    const result = execSync("shortcuts list", { encoding: 'utf8' });
 
     return result.split("\n").filter(Boolean);
 }
@@ -10,6 +10,11 @@ export function getInstalledShortcuts() {
  * @param {string} shortcutName
  * @returns {string}
  */
-export function runShortcut(shortcutName) {
-    return execSync(`shortcuts run ${shortcutName}`, {encoding: 'utf8'});
+function runShortcut(shortcutName) {
+    return execSync(`shortcuts run ${shortcutName}`, { encoding: 'utf8' });
 }
+
+module.exports = {
+    getInstalledShortcuts,
+    runShortcut
+};

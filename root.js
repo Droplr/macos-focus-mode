@@ -1,9 +1,7 @@
-import {fileURLToPath} from "url";
-import {dirname, resolve} from "path";
+const { dirname, resolve } = require("path");
 
-const __filename = fileURLToPath(import.meta.url);
-export const rootDirname = dirname(__filename);
+exports.rootDirname = dirname(__filename);
 
-export function resolvePath(...paths) {
-    return resolve(rootDirname, ...paths);
-}
+exports.resolvePath = function (...paths) {
+    return resolve(exports.rootDirname, ...paths);
+};

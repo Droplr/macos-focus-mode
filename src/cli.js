@@ -1,11 +1,11 @@
-import minimist from 'minimist';
-import {
+const minimist = require('minimist');
+const {
     disableFocusMode,
     enableFocusMode,
     installFocusModeShortcut,
     isFocusModeShortcutInstalled
-} from "./focus-mode.js";
-import {pluralize} from "./helpers/text.js";
+} = require("./focus-mode.js");
+const { pluralize } = require("./helpers/text.js");
 
 const argv = minimist(process.argv.slice(2));
 const [command] = argv._;
@@ -38,7 +38,7 @@ function printError(errorText) {
     process.exit(1);
 }
 
-export function runCli() {
+function runCli() {
     const isEnableCommand = command === 'enable';
     const isDisableCommand = command === 'disable';
     const isInstallCommand = command === 'install';
@@ -81,3 +81,7 @@ export function runCli() {
         return printHelp();
     }
 }
+
+module.exports = {
+    runCli
+};

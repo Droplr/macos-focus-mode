@@ -1,16 +1,16 @@
-import {execSync} from "child_process";
-import {getInstalledShortcuts, runShortcut} from "./shortcuts.js";
-import {resolvePath} from "../root.js";
+const { execSync } = require("child_process");
+const { getInstalledShortcuts, runShortcut } = require("./shortcuts.js");
+const { resolvePath } = require("../root.js");
 
 const FOCUS_MODE_SHORTCUT_NAME = 'macos-focus-mode';
 const PATH_TO_FOCUS_MODE_SHORTCUT = resolvePath(`resources/${FOCUS_MODE_SHORTCUT_NAME}.shortcut`);
 
-export function isFocusModeShortcutInstalled() {
+function isFocusModeShortcutInstalled() {
     const installedShortcuts = getInstalledShortcuts();
     return installedShortcuts.includes(FOCUS_MODE_SHORTCUT_NAME);
 }
 
-export function installFocusModeShortcut() {
+function installFocusModeShortcut() {
     if (isFocusModeShortcutInstalled()) {
         return;
     }
@@ -34,7 +34,7 @@ function ensureShortcutIsInstalled() {
  * @param {number} durationInMinutes
  * @returns {string}
  */
-export function enableFocusMode(durationInMinutes) {
+function enableFocusMode(durationInMinutes) {
     ensureShortcutIsInstalled();
 
     if (durationInMinutes) {
@@ -44,8 +44,15 @@ export function enableFocusMode(durationInMinutes) {
     return runFocusModeShortcut('on');
 }
 
-export function disableFocusMode() {
+function disableFocusMode() {
     ensureShortcutIsInstalled();
 
     return runFocusModeShortcut('off');
 }
+
+module.exports = {
+    isFocusModeShortcutInstalled,
+    installFocusModeShortcut,
+    enableFocusMode,
+    disableFocusMode
+};

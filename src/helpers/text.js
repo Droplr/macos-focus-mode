@@ -7,7 +7,7 @@
  * @param {string} noun
  * @param {string} suffix
  */
-export const pluralizeNoun = (count, noun, suffix = 's') => {
+exports.pluralizeNoun = (count, noun, suffix = 's') => {
     return `${noun}${count !== 1 ? suffix : ''}`;
 };
 
@@ -20,6 +20,6 @@ export const pluralizeNoun = (count, noun, suffix = 's') => {
  * @param {string} noun
  * @param {string} suffix
  */
-export const pluralize = (count, noun, suffix = 's') => {
-    return `${count} ${pluralizeNoun(count, noun, suffix)}`;
+exports.pluralize = (count, noun, suffix = 's') => {
+    return `${count} ${exports.pluralizeNoun(count, noun, suffix)}`;
 };

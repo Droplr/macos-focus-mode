@@ -1,6 +1,13 @@
-export {
-  enableFocusMode, 
-  disableFocusMode, 
-  installFocusModeShortcut, 
+const {
+  enableFocusMode,
+  disableFocusMode,
+  installFocusModeShortcut,
   isFocusModeShortcutInstalled
-} from "./src/focus-mode.js";
+} = require("./src/focus-mode.js");
+
+module.exports = {
+  enableFocusMode,
+  disableFocusMode,
+  installFocusModeShortcut,
+  isFocusModeShortcutInstalled
+};
