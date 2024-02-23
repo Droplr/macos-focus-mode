@@ -7,9 +7,9 @@ It uses MacOS shortcuts functionality under the hood, please read the correspond
 `npm i macos-focus-mode`
 
 ```js
-import { enableFocusMode } from 'macos-focus-mode';
+const focusMode = require('macos-focus-mode');
 
-enableFocusMode();
+focusMode.enableFocusMode();
 ```
 
 The library exports the following methods:
